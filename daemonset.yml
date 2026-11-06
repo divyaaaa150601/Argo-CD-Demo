@@ -7,14 +7,18 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: foodapp
+      app: foodapp-daemon
   template:
     metadata:
       labels:
-        app: foodapp
+        app: foodapp-daemon
     spec:
       containers:
       - name: cont-1
         image: vamsikrishnakakani/vamsi-repo:foodapp
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
